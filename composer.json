@@ -1,0 +1,20 @@
+{
+    "name": "root/php-api",
+    "autoload": {
+        "psr-4": {
+            "phpApi\\": "src/"
+        },
+        "files": ["helpers.php"]
+    },
+
+    "authors": [
+        {
+            "name": "Ajaz Ul Haq",
+            "email": "ajaz.ul.haq@ladybirdweb.com"
+        }
+    ],
+
+    "require": {
+        "ext-mysqli": "*"
+    }
+}

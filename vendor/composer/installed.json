@@ -1,0 +1,44 @@
+{
+    "packages": [
+        {
+            "name": "xdr/phpmodel",
+            "version": "dev-main",
+            "version_normalized": "dev-main",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ajaz-ul-haqq/phpModel.git",
+                "reference": "e0151cf578f6765f2301cceb0201a05853eae834"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ajaz-ul-haqq/phpModel/zipball/e0151cf578f6765f2301cceb0201a05853eae834",
+                "reference": "e0151cf578f6765f2301cceb0201a05853eae834",
+                "shasum": ""
+            },
+            "require": {
+                "ext-mysqli": "*",
+                "php": "^8.1"
+            },
+            "time": "2024-03-17T06:20:51+00:00",
+            "default-branch": true,
+            "type": "project",
+            "installation-source": "dist",
+            "autoload": {
+                "psr-4": {
+                    "phpModel\\": "src/"
+                },
+                "files": [
+                    "helpers.php"
+                ]
+            },
+            "description": "Php Model",
+            "support": {
+                "source": "https://github.com/ajaz-ul-haqq/phpModel/tree/main",
+                "issues": "https://github.com/ajaz-ul-haqq/phpModel/issues"
+            },
+            "install-path": "../xdr/phpmodel"
+        }
+    ],
+    "dev": true,
+    "dev-package-names": []
+}
