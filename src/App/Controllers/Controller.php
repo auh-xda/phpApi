@@ -2,6 +2,7 @@
 
 namespace phpApi\App\Controllers;
 
+use phpApi\App\Models\Model;
 use phpApi\Resolver\Response;
 
 class Controller
@@ -13,7 +14,9 @@ class Controller
 
     public function getUserList(): Response
     {
-        return successResponse('sss', users()->get());
+        $users = model('users')->get();
+
+        return successResponse('userList', $users);
     }
 
     public function getAdmin(): Response

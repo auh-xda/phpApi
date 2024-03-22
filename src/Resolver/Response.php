@@ -15,9 +15,9 @@ class Response
         $this->set('content', $content);
     }
 
-    public function error(): static
+    public function error($status = 500): static
     {
-        return $this->status(500);
+        return $this->status($status);
     }
 
     public function success(): static
@@ -65,9 +65,7 @@ class Response
 
     public function render($view): static
     {
-        $content = file_get_contents(srcPath('Views/' . $view . '.php'));
-
-        return $this->view($content);
+        return $this->view(file_get_contents(srcPath('Views/' . $view . '.php')));
     }
 
     public function withCookie(Cookie $cookie): Response

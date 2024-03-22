@@ -22,7 +22,10 @@ function model($table): Model
 
 function dd()
 {
-    print_r(...func_get_args());
+    foreach (func_get_args() as $arg) {
+        print_r($arg);
+    }
+
     die(PHP_EOL);
 }
 
@@ -47,9 +50,9 @@ function response(): Response
 
 function request($key = null)
 {
-    $request = \phpApi\Resolver\Request::intercept();
+    $request = (new \phpApi\Resolver\Request);
 
-    return $key ? $request->get($key) : $request;
+    return $key ? $request->get($key) : $request ;
 }
 
 function srcPath($path): string

@@ -21,11 +21,6 @@ class Request
         return explode('?', $requestWithQuery)[0];
     }
 
-    public static function intercept(): static
-    {
-        return new self();
-    }
-
     public function toArray(): array
     {
         foreach ($this as $property => $value) {
