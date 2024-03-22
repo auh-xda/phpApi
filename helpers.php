@@ -44,3 +44,15 @@ function response(): Response
 {
     return new Response();
 }
+
+function request($key = null)
+{
+    $request = \phpApi\Resolver\Request::intercept();
+
+    return $key ? $request->get($key) : $request;
+}
+
+function srcPath($path): string
+{
+    return __DIR__.DIRECTORY_SEPARATOR.'src'.DIRECTORY_SEPARATOR.$path;
+}

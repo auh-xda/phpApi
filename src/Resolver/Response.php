@@ -1,6 +1,7 @@
 <?php
 
 namespace phpApi\Resolver;
+
 use phpApi\Traits\PropertyMutator;
 
 class Response
@@ -26,7 +27,7 @@ class Response
 
     public function redirect($to): static
     {
-        $this->status(302)->set('headers', ['Location:'.$to]);
+        $this->status(302)->set('headers', ['Location:' . $to]);
 
         return $this;
     }
@@ -62,9 +63,21 @@ class Response
         return $this;
     }
 
-    public function withCookie(Cookie $cookie) : Response
+    public function render($view): static
+    {
+        $content = file_get_contents(srcPath('Views/' . $view . '.php'));
+
+        return $this->view($content);
+    }
+
+    public function withCookie(Cookie $cookie): Response
     {
         $this->set('cookie', $cookie);
         return $this;
+    }
+
+    public function download()
+    {
+
     }
 }

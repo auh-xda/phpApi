@@ -103,7 +103,7 @@ class Application
                 $cookie->getDomain(), $cookie->isSecure(), $cookie->getHttpOnly());
         }
 
-        if (in_array('Content-Type: application/json', $response->get('headers'))){
+        if ($response->header('Content-Type') === ''){
             echo json_encode($response->get('content'));
         } else {
             echo ($response->get('content'));

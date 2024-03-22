@@ -20,4 +20,15 @@ trait PropertyMutator
         return $this->$property[] = $value;
     }
 
+    public function __call($method, $arguments)
+    {
+        $key = str_replace('get', '', $method);
+
+        if (property_exists($this, $key)) {
+            return $this->get($key);
+        }
+
+        return $this->get(strtolower($key));
+    }
+
 }

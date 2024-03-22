@@ -2,24 +2,18 @@
 
 namespace phpApi\App\Controllers;
 
-use phpApi\Resolver\Cookie;
-use phpApi\App\Models\Model;
 use phpApi\Resolver\Response;
 
 class Controller
 {
-    public function init()
+    public function init(): Response
     {
-        return response()->view('');
+        return response()->success();
     }
 
     public function getUserList(): Response
     {
-        $model = new Model('users');
-
-        $users = $model->get();
-
-        return successResponse('sss', $users);
+        return successResponse('sss', users()->get());
     }
 
     public function getAdmin(): Response
