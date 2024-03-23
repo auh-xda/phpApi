@@ -2,25 +2,23 @@
 
 namespace phpApi\App\Controllers;
 
-use phpApi\App\Models\Model;
+use phpApi\Resolver\Request;
+use phpApi\Traits\PropertyMutator;
 use phpApi\Resolver\Response;
 
 class Controller
 {
-    public function init(): Response
+    use PropertyMutator;
+
+    public Request $request;
+
+    public function __construct()
     {
-        return response()->success();
+        $this->request = request();
     }
 
-    public function getUserList(): Response
+    protected function request($key = null)
     {
-        $users = model('users')->get();
-
-        return successResponse('userList', $users);
-    }
-
-    public function getAdmin(): Response
-    {
-        return successResponse('adminArea', users()->select(['id','email', 'role'])->get());
+        return request($key);
     }
 }

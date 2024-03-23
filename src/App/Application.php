@@ -81,7 +81,7 @@ class Application
 
         return match (true) {
            $returnedValue instanceof Response => $returnedValue,
-            default => new Response($returnedValue)
+            default => new Response('s')
         };
     }
 
@@ -98,13 +98,8 @@ class Application
             header($header);
         }
 
-        if ($cookie = $response->get('cookie')) {
-            setcookie($cookie->getName(), $cookie->getValue(), $cookie->getExpiry(), $cookie->getPath(),
-                $cookie->getDomain(), $cookie->isSecure(), $cookie->getHttpOnly());
-        }
-
         if (in_array('Content-Type: application/json', $response->get('headers'))){
-            echo json_encode($response->get('content'));
+            echo json_encode(array_merge(['success' => $response->get('success'), ...$response->get('content')]));
         } else {
             echo ($response->get('content'));
         }

@@ -12,4 +12,8 @@ define("DB_NAME", $config['database']);
 define("SHOULD_LOG", $config['shouldLog']);
 define("LOGGABLE", $config['loggable']);
 
+
+@session_start();
+@session_regenerate_id();
+
 require_once 'vendor/autoload.php';

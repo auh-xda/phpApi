@@ -52,7 +52,7 @@ function request($key = null)
 {
     $request = (new \phpApi\Resolver\Request);
 
-    return $key ? $request->get($key) : $request ;
+    return $key ? $request->input($key) : $request ;
 }
 
 function srcPath($path): string

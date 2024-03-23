@@ -22,6 +22,8 @@ class Response
 
     public function success(): static
     {
+        $this->set('success', true);
+
         return $this->status(200);
     }
 

@@ -8,7 +8,7 @@ return [
 
     'password' => 9090,
 
-    'database' => 'root',
+    'database' => '3voke',
 
     'shouldLog' => true,
 

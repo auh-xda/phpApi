@@ -7,7 +7,7 @@ class Request
 
     public function __construct()
     {
-        $this->set('request', $_REQUEST);
+        $this->set('data', $_REQUEST);
         $this->set('server', $_SERVER);
         $this->set('headers', getallheaders());
     }
@@ -23,7 +23,8 @@ class Request
 
     public function toArray(): array
     {
-        foreach ($this as $property => $value) {
+        return $this->get('request');
+        foreach ($this->get('request') as $property => $value) {
             $request[$property] = $value;
         }
 
